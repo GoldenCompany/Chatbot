@@ -17,12 +17,12 @@ class PhraseListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PhraseParser#InterpretePhrase.
-    def enterInterpretePhrase(self, ctx:PhraseParser.InterpretePhraseContext):
+    # Enter a parse tree produced by PhraseParser#phrase.
+    def enterPhrase(self, ctx:PhraseParser.PhraseContext):
         pass
 
-    # Exit a parse tree produced by PhraseParser#InterpretePhrase.
-    def exitInterpretePhrase(self, ctx:PhraseParser.InterpretePhraseContext):
+    # Exit a parse tree produced by PhraseParser#phrase.
+    def exitPhrase(self, ctx:PhraseParser.PhraseContext):
         pass
 
 

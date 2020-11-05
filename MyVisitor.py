@@ -8,10 +8,12 @@ class MyVisitor(PhraseVisitor):
     def __init__(self):
         pass
 
-    def visitÉnoncé(self, ctx):
-        return self.visit(ctx.phrase())
+    def visitÉnoncé(self, ctx:PhraseParser.ÉnoncéContext):
+        return self.visitChildren(ctx)
 
-    def visitInterpretePhrase(self, ctx):
+    def visitPhrase(self, ctx:PhraseParser.PhraseContext):
+        print (ctx.VALEUR())
+
         if ctx.CLEF(0) and ctx.CLEF(1) and ctx.VALEUR():
             valeur_demandée=ctx.CLEF(0).getText()
             clef_recherchée=ctx.CLEF(1).getText()

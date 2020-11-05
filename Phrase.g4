@@ -1,9 +1,10 @@
 grammar Phrase;
 énoncé: (phrase NEWLINE);
 phrase:
-PRON_INT 'est' ARTICLE CLEF 'de' ARTICLE CLEF VALEUR '?'	# InterpretePhrase
+PRON_INT 'est' ARTICLE CLEF 'de' ARTICLE CLEF VALEUR '?'
+| PRON_INT 'a réalisé' VALEUR '?'
 	;
-PRON_INT: 'Quel'|'Quelle' ;
+PRON_INT: 'Quel'|'Quelle'|'Qui' ;
 ARTICLE: 'le' | 'la' | 'l' ;
 CLEF:
 	  'titre'

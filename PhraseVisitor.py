@@ -14,8 +14,8 @@ class PhraseVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by PhraseParser#InterpretePhrase.
-    def visitInterpretePhrase(self, ctx:PhraseParser.InterpretePhraseContext):
+    # Visit a parse tree produced by PhraseParser#phrase.
+    def visitPhrase(self, ctx:PhraseParser.PhraseContext):
         return self.visitChildren(ctx)
 
 
