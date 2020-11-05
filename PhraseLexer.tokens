@@ -1,0 +1,12 @@
+T__0=1
+T__1=2
+T__2=3
+PRON_INT=4
+ARTICLE=5
+CLEF=6
+VALEUR=7
+NEWLINE=8
+WS=9
+'est'=1
+'de'=2
+'?'=3

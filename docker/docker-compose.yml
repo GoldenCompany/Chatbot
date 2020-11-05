@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+    python:
+        build:
+            context: ../
+            dockerfile: ./docker/Dockerfile
+        volumes:
+            - ../:/srv/project:rw,cached
