@@ -23,7 +23,12 @@ if __name__ == '__main__':
     parser = PhraseParser(token_stream)
     tree = parser.énoncé()
     visitor = MyVisitor()
-    (demande, clef_recherche, valeur_recherche)=visitor.visit(tree)
+    try:
+        (demande, clef_recherche, valeur_recherche)=visitor.visit(tree)
+    except ValueError:
+        print('Cette phrase n\'est pas valide ')
+        sys.exit()
+
     for film in films:
         if clef_recherche in film:
             if film[clef_recherche]==valeur_recherche:
