@@ -34,7 +34,7 @@ class MyVisitor(PhraseVisitor):
         results = self.findFilmsByValue('année', searchValue, 'titre')
         for value in results:
             print(value)
-            
+
     def visitRealisatorPhrase(self, ctx:PhraseParser.PhraseContext):
         if ctx.STRING():
             searchValue=ctx.STRING().getText().replace("\"", "")
@@ -52,7 +52,7 @@ class MyVisitor(PhraseVisitor):
         print('\n'+searchValue +' a réalisé les films suivants:')
         for value in results:
             print(str(value))
-            
+
     def visitCountActorPhrase(self, ctx:PhraseParser.PhraseContext):
         if ctx.STRING():
             searchValue=ctx.STRING().getText().replace("\"", "")
