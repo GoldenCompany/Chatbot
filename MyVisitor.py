@@ -12,9 +12,7 @@ class MyVisitor(PhraseVisitor):
     def visitÉnoncé(self, ctx:PhraseParser.ÉnoncéContext):
         return self.visitChildren(ctx)
 
-    def visitPhrase(self, ctx:PhraseParser.PhraseContext):
-        print (ctx.VALEUR())
-
+    def visitKeyValuePhrase(self, ctx:PhraseParser.PhraseContext):
         if ctx.CLEF(0) and ctx.CLEF(1) and ctx.VALEUR():
             wantedValue=ctx.CLEF(0).getText()
             searchKey=ctx.CLEF(1).getText()
@@ -22,7 +20,18 @@ class MyVisitor(PhraseVisitor):
         else:
             raise ValueError("Missing value")
 
+        results = self.findFilmsByValue(searchKey, searchValue, wantedValue)
+        for value in results:
+            print(value)
+
+    def visitDatePhrase(self, ctx:PhraseParser.PhraseContext):
+        print('test')
+
+    def findFilmsByValue(self, searchKey, searchValue, wantedValue):
+        results = []
         for film in films:
             if searchKey in film:
                 if film[searchKey]==searchValue:
-                    print(film[wantedValue])
+                    results.append(film[wantedValue])
+
+        return results
