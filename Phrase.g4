@@ -2,8 +2,8 @@ grammar Phrase;
 énoncé: (phrase NEWLINE);
 phrase:
 PRON_INT 'est' ARTICLE CLEF 'de' ARTICLE CLEF VALEUR '?' # KeyValuePhrase
-| 'Quels sont les films sortis en YEAR ?' # DatePhrase
-| 'Quels films sont sortis en YEAR ?' # DatePhrase
+| PRON_INT 'sont les films sortis en' YEAR '?' # DatePhrase
+| PRON_INT 'films sont sortis en' YEAR '?' # DatePhrase
 | PRON_INT 'a réalisé' VALEUR '?' # RealisatorPhrase
 	;
 PRON_INT: 'Quel'|'Quelle'|'Quels'|'Quelles'|'Qui' ;

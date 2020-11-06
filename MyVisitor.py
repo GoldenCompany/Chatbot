@@ -1,4 +1,4 @@
-__author__ = 'Pierre Jourlin'
+__author__ = 'Antoine MILESI'
 
 from data import *
 from PhraseVisitor import PhraseVisitor
@@ -25,7 +25,12 @@ class MyVisitor(PhraseVisitor):
             print(value)
 
     def visitDatePhrase(self, ctx:PhraseParser.PhraseContext):
-        print('test')
+        if ctx.YEAR():
+            searchValue=ctx.YEAR().getText()
+        else:
+            raise ValueError("Missing value")
+
+        print(searchValue)
 
     def findFilmsByValue(self, searchKey, searchValue, wantedValue):
         results = []
