@@ -25,7 +25,14 @@ class MyVisitor(PhraseVisitor):
             print(value)
 
     def visitDatePhrase(self, ctx:PhraseParser.PhraseContext):
-        print('test')
+        if ctx.YEAR():
+            searchValue=ctx.YEAR().getText()
+        else:
+            raise ValueError("Missing value")
+
+        results = self.findFilmsByValue('année', searchValue, 'titre')
+        for value in results:
+            print(value)
 
     def findFilmsByValue(self, searchKey, searchValue, wantedValue):
         results = []
