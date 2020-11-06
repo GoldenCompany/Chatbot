@@ -11,18 +11,23 @@ from PhraseParser import PhraseParser
 from MyVisitor import MyVisitor
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        input_stream = FileStream(sys.argv[1])
-    else:
-        input_stream = InputStream(sys.stdin.readline())
+    while True:
+        print("Taper une question ou exit ou Ctrl+C pour fermer cette fenêtre")
+        if len(sys.argv) > 1:
+            input_stream = FileStream(sys.argv[1])
+        else:
+            input_stream = InputStream(sys.stdin.readline())
 
-    lexer = PhraseLexer(input_stream)
-    token_stream = CommonTokenStream(lexer)
-    parser = PhraseParser(token_stream)
-    tree = parser.enonce()
-    visitor = MyVisitor()
-    try:
-        visitor.visit(tree)
-    except ValueError:
-        print('Cette phrase n\'est pas valide.')
-        sys.exit()
+        if str(input_stream).replace("\n", "") == "exit":
+            sys.exit()
+
+        lexer = PhraseLexer(input_stream)
+        token_stream = CommonTokenStream(lexer)
+        parser = PhraseParser(token_stream)
+        tree = parser.énoncé()
+        visitor = MyVisitor()
+        try:
+            visitor.visit(tree)
+        except ValueError:
+            print('Cette phrase n\'est pas valide.')
+            sys.exit()
