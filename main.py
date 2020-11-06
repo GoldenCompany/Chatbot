@@ -7,7 +7,6 @@ __author__ = 'Pierre Jourlin'
 import sys
 from antlr4 import *
 from antlr4.InputStream import InputStream
-from data import *
 from PhraseLexer import PhraseLexer
 from PhraseParser import PhraseParser
 from MyVisitor import MyVisitor
@@ -24,12 +23,7 @@ if __name__ == '__main__':
     tree = parser.énoncé()
     visitor = MyVisitor()
     try:
-        (demande, clef_recherche, valeur_recherche)=visitor.visit(tree)
+        visitor.visit(tree)
     except ValueError:
-        print('Cette phrase n\'est pas valide ')
+        print('Cette phrase n\'est pas valide.')
         sys.exit()
-
-    for film in films:
-        if clef_recherche in film:
-            if film[clef_recherche]==valeur_recherche:
-                print(film[demande])
