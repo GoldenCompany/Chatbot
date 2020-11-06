@@ -9,7 +9,7 @@ class MyVisitor(PhraseVisitor):
     def __init__(self):
         pass
 
-    def visitEnonce(self, ctx:PhraseParser.ÉnoncéContext):
+    def visitEnonce(self, ctx:PhraseParser.EnonceContext):
         return self.visitChildren(ctx)
 
     def visitKeyValuePhrase(self, ctx:PhraseParser.PhraseContext):
