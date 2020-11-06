@@ -4,9 +4,9 @@ phrase:
 PRON_INT 'est' ARTICLE CLEF 'de' ARTICLE CLEF VALEUR '?' # KeyValuePhrase
 | PRON_INT 'sont les films sortis en' YEAR '?' # DatePhrase
 | PRON_INT 'films sont sortis en' YEAR '?' # DatePhrase
-| PRON_INT 'a realise' STRING '?' # RealisatorPhrase
-| PRON_INT 'est le realisateur du film' STRING '?' # RealisatorPhrase
-| PRON_INT 'films ont ete realise par' STRING '?' # MovieRealPhrase
+| PRON_INT 'a réalise' STRING '?' # RealisatorPhrase
+| PRON_INT 'est le réalisateur du film' STRING '?' # RealisatorPhrase
+| PRON_INT 'films ont ete réalise par' STRING '?' # MovieRealPhrase
 | 'Dans combien de films' STRING 'a t' PRON 'joue ?' # CountActorPhrase
 | 'Lesquels ?' # WhichFilmsPhrase
 	;
