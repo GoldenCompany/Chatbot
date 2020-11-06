@@ -34,7 +34,25 @@ class MyVisitor(PhraseVisitor):
         results = self.findFilmsByValue('année', searchValue, 'titre')
         for value in results:
             print(value)
+            
+    def visitRealisatorPhrase(self, ctx:PhraseParser.PhraseContext):
+        if ctx.STRING():
+            searchValue=ctx.STRING().getText().replace("\"", "")
+        else:
+            raise ValueError("Missing value")
+        results = self.findFilmsByValue('titre', searchValue, 'réalisateur')
+        print('Le réalisateur du film ' + searchValue + ' est ' + results[0])
 
+    def visitMovieRealPhrase(self, ctx:PhraseParser.PhraseContext):
+        if ctx.STRING():
+            searchValue=ctx.STRING().getText().replace("\"", "")
+        else:
+            raise ValueError("Missing value")
+        results = self.findFilmsByValue('réalisateur', searchValue, 'titre')
+        print('\n'+searchValue +' a réalisé les films suivants:')
+        for value in results:
+            print(str(value))
+            
     def visitCountActorPhrase(self, ctx:PhraseParser.PhraseContext):
         if ctx.STRING():
             searchValue=ctx.STRING().getText().replace("\"", "")
