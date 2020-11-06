@@ -1,5 +1,6 @@
 __author__ = 'Florian Bodrero'
 
+from data import *
 from PhraseVisitor import PhraseVisitor
 from PhraseParser import PhraseParser
 
@@ -11,14 +12,26 @@ class MyVisitor(PhraseVisitor):
     def visitEnonce(self, ctx:PhraseParser.ÉnoncéContext):
         return self.visitChildren(ctx)
 
-    def visitPhrase(self, ctx:PhraseParser.PhraseContext):
-        print (ctx.VALEUR())
-
+    def visitKeyValuePhrase(self, ctx:PhraseParser.PhraseContext):
         if ctx.CLEF(0) and ctx.CLEF(1) and ctx.VALEUR():
-            valeur_demandée=ctx.CLEF(0).getText()
-            clef_recherchée=ctx.CLEF(1).getText()
-            valeur_recherchée=ctx.VALEUR().getText()
+            wantedValue=ctx.CLEF(0).getText()
+            searchKey=ctx.CLEF(1).getText()
+            searchValue=ctx.VALEUR().getText()
         else:
             raise ValueError("Missing value")
 
-        return (valeur_demandée, clef_recherchée, valeur_recherchée)
+        results = self.findFilmsByValue(searchKey, searchValue, wantedValue)
+        for value in results:
+            print(value)
+
+    def visitDatePhrase(self, ctx:PhraseParser.PhraseContext):
+        print('test')
+
+    def findFilmsByValue(self, searchKey, searchValue, wantedValue):
+        results = []
+        for film in films:
+            if searchKey in film:
+                if film[searchKey]==searchValue:
+                    results.append(film[wantedValue])
+
+        return results
