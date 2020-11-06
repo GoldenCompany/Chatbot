@@ -1,1 +1,7 @@
 __pycache__
+Phrase.*
+!Phrase.g4
+PhraseLexer.*
+PhraseListener.*
+PhraseParser.*
+PhraseVisitor.py
