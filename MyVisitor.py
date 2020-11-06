@@ -35,12 +35,13 @@ class MyVisitor(PhraseVisitor):
             print(value)
 
     def visitCountActorPhrase(self, ctx:PhraseParser.PhraseContext):
-        if ctx.VALEUR():
-            searchValue=ctx.VALEUR().getText()
+        if ctx.STRING():
+            searchValue=ctx.STRING().getText().replace("\"", "")
         else:
             raise ValueError("Missing value")
-        results = len(self.findFilmsByValue('acteur', searchValue, 'titre'))
-        print(results)
+
+        results = self.findFilmsByValue('acteur', searchValue, 'titre')
+        print(searchValue + ' a joué dans ' + str(len(results)) + ' films.')
 
     def findFilmsByValue(self, searchKey, searchValue, wantedValue):
         results = []
