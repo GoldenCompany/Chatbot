@@ -49,6 +49,16 @@ class MyVisitor(PhraseVisitor):
             for film in Memory.films:
                 print(film['titre'])
 
+    def visitWhichDatePhrase(self, ctx:PhraseParser.PhraseContext):
+        if Memory.films:
+            for film in Memory.films:
+                print(film['année'])
+
+    def visitWhichRealisatorPhrase(self, ctx:PhraseParser.PhraseContext):
+        if Memory.films:
+            for film in Memory.films:
+                print(film['réalisateur'])
+
 
     def findFilmsByValue(self, searchKey, searchValue, wantedValue):
         Memory.films = []
