@@ -30,7 +30,9 @@ class MyVisitor(PhraseVisitor):
         else:
             raise ValueError("Missing value")
 
-        print(searchValue)
+        results = self.findFilmsByValue('année', searchValue, 'titre')
+        for value in results:
+            print(value)
 
     def findFilmsByValue(self, searchKey, searchValue, wantedValue):
         results = []
