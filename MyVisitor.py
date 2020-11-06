@@ -1,4 +1,4 @@
-__author__ = 'Pierre Jourlin'
+__author__ = 'Florian Bodrero'
 
 from PhraseVisitor import PhraseVisitor
 from PhraseParser import PhraseParser
@@ -8,7 +8,7 @@ class MyVisitor(PhraseVisitor):
     def __init__(self):
         pass
 
-    def visitÉnoncé(self, ctx:PhraseParser.ÉnoncéContext):
+    def visitEnonce(self, ctx:PhraseParser.ÉnoncéContext):
         return self.visitChildren(ctx)
 
     def visitPhrase(self, ctx:PhraseParser.PhraseContext):

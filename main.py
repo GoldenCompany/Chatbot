@@ -1,8 +1,7 @@
 #!/usr/bin/python3 main.py
 # coding:utf8
-# (c) Pierre Jourlin, novembre 2020
 
-__author__ = 'Pierre Jourlin'
+__author__ = 'Florian Bodrero'
 
 import sys
 from antlr4 import *
@@ -21,7 +20,7 @@ if __name__ == '__main__':
     lexer = PhraseLexer(input_stream)
     token_stream = CommonTokenStream(lexer)
     parser = PhraseParser(token_stream)
-    tree = parser.énoncé()
+    tree = parser.enonce()
     visitor = MyVisitor()
     try:
         (demande, clef_recherche, valeur_recherche)=visitor.visit(tree)
