@@ -6,6 +6,7 @@ PRON_INT 'est' ARTICLE CLEF 'de' ARTICLE CLEF VALEUR '?' # KeyValuePhrase
 | PRON_INT 'films sont sortis en' YEAR '?' # DatePhrase
 | PRON_INT 'a réalisé' VALEUR '?' # RealisatorPhrase
 | 'Dans combien de films' STRING 'a-t-' PRON_PERS 'joué ?' # CountActorPhrase
+| 'Lesquels ?' # WhichFilmsPhrase
 	;
 PRON_INT: 'Quel'|'Quelle'|'Quels'|'Quelles'|'Qui' ;
 PRON_PERS: 'il'|'elle' ;

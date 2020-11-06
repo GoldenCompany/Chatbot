@@ -1,6 +1,7 @@
 __author__ = 'Antoine MILESI'
 
 from data import *
+from Memory import Memory
 from PhraseVisitor import PhraseVisitor
 from PhraseParser import PhraseParser
 
@@ -43,11 +44,19 @@ class MyVisitor(PhraseVisitor):
         results = self.findFilmsByValue('acteur', searchValue, 'titre')
         print(searchValue + ' a joué dans ' + str(len(results)) + ' films.')
 
+    def visitWhichFilmsPhrase(self, ctx:PhraseParser.PhraseContext):
+        if Memory.films:
+            for film in Memory.films:
+                print(film['titre'])
+
+
     def findFilmsByValue(self, searchKey, searchValue, wantedValue):
+        Memory.films = []
         results = []
         for film in films:
             if searchKey in film:
                 if film[searchKey]==searchValue:
+                    Memory.films.append(film)
                     results.append(film[wantedValue])
 
         return results
