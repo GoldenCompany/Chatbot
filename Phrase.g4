@@ -33,4 +33,4 @@ DOUBLE_STRING
     ;
 
 NEWLINE: [\r\n]+ ;
-WS  :   ['- \t']+ -> skip ; // élimine les espaces et les '
+WS  :   (' '|'\t'|'-')+ -> skip ; // élimine les espaces et les '
