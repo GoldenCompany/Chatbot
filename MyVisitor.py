@@ -1,4 +1,4 @@
-__author__ = 'Antoine MILESI'
+__author__ = 'Antoine MILESI, Florian Bodrero'
 
 from data import *
 from Memory import Memory
